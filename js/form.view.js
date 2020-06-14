@@ -6,7 +6,9 @@ const viewController = (function(){
         inputPhone: "#input-phone",
         inputEmail: "#input-email",
         inputType: "#exampleFormControlSelect1",
-        form: "#application-form"
+        inputStatus: "#badge-danger",
+        form: "#application-form",
+
     }
 
 
@@ -15,7 +17,7 @@ const viewController = (function(){
             name: document.querySelector(DOMstrings.inputName).value,
             phone: document.querySelector(DOMstrings.inputPhone).value,
             email: document.querySelector(DOMstrings.inputEmail).value,
-            type: document.querySelector(DOMstrings.inputType).value
+            type: document.querySelector(DOMstrings.inputType).options[document.querySelector(DOMstrings.inputType).selectedIndex].text,
         }
     }
 

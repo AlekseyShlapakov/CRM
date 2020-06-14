@@ -44,16 +44,17 @@
                     Заявки
                 </div>
                 <ul>
-                    <li><a href="#" class="active">Все вместе</a></li>
-                    <li>
-                        <a href="#"
+                    <li class="filter-bids"><a href="#" data-status="all">Все вместе</a></li>
+                    <li class="filter-bids">
+                        <a href="#" data-status="new"
                             >Новые
-                            <div class="badge">12</div></a
+                            <div class="badge">1</div></a
                         >
-                    </li>
-                    <li><a href="#">В работе</a></li>
-                    <li><a href="#">Завершенные</a></li>
-                    <li><a href="#">Архив</a></li>
+                    </li class="filter-bids">
+                    <li class="filter-bids"><a href="#" data-status="in-progress">В работе</a></li>
+                    <li class="filter-bids"><a href="#" data-status="completed" >Завершенные</a></li>
+                    <li class="filter-bids"><a href="#" data-status="waiting" >Ожидается оплата</a></li>
+                    <li class="filter-bids"><a href="#" data-status="arhive">Архив</a></li>
                 </ul>
             </div>
             <!-- // Navigation 1 -->
@@ -89,17 +90,20 @@
                         <!-- Col -->
                         <div class="col">
                             <div
-                                class="btn-group"
+                                class="btn-group" id="btn-group"
                                 role="group"
-                                aria-label="..."
+                       
                             >
-                                <a href="#" class="btn btn-light">Все</a>
-                                <a href="#" class="btn btn-light">Новые</a>
-                                <a href="#" class="btn btn-light">В работе</a>
-                                <a href="#" class="btn btn-light"
+                                <a href="#" data-status="all" class="btn btn-light">Все</a>
+                                <a href="#" data-status="new" class="btn btn-light">Новые</a>
+                                <a href="#" data-status="in-progress" class="btn btn-light">В работе</a>
+                                <a href="#" data-status="completed" class="btn btn-light"
                                     >Завершенные</a
                                 >
-                                <a href="#" class="btn btn-light">Архив</a>
+                                <a href="#" data-status="waiting" class="btn btn-light"
+                                    >Ожидается оплата</a
+                                >
+                                <a href="#" data-status="arhive" class="btn btn-light">Архив</a>
                             </div>
                         </div>
                         <!-- // Col -->
@@ -109,18 +113,19 @@
                                 class="custom-select"
                                 id="inputGroupSelect01"
                             >
-                                <option selected>Все продукты</option>
-                                <option value="course-html"
+                                <option class="product" selected>Все продукты</option>
+                                <option value="course-html" class="product" 
                                     >Курс по верстке</option
                                 >
-                                <option value="course-js"
+                                <option data-sel="sel" value="course-js" class="product" 
                                     >Курс по JavaScript</option
                                 >
-                                <option value="course-vue"
+                                <option value="course-vue" class="product" 
                                     >Курс по VUE JS</option
                                 >
-                                <option value="course-php">Курс по PHP</option>
-                                <option value="course-wordpress"
+                                <option value="course-php" class="product" 
+                                    >Курс по PHP</option>
+                                <option value="course-wordpress" class="product" 
                                     >Курс по WordPress</option
                                 >
                             </select>
@@ -142,24 +147,8 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>01.04.2020</td>
-                            <td>Курс по верстке</td>
-                            <td>Петр Сергеевич</td>
-                            <td>info@inbox.ru</td>
-                            <td>+7 (909) 77-55-777</td>
-                            <td>
-                                <div class="badge badge-pill badge-danger">
-                                    Новый
-                                </div>
-                            </td>
-                            <td>
-                                <a href="03-crm-edit-bid.html">Редактировать</a>
-                            </td>
-                        </tr>
-                        <tr>
+                    <tbody id="table">
+                        <!-- <tr id="table-row">
                             <th scope="row">2</th>
                             <td>01.04.2020</td>
                             <td>Курс по верстке</td>
@@ -175,7 +164,7 @@
                                 <a href="03-crm-edit-bid.html">Редактировать</a>
                             </td>
                         </tr>
-                        <tr>
+                        <tr id="table-row">
                             <th scope="row">1</th>
                             <td>01.04.2020</td>
                             <td>Курс по верстке</td>
@@ -190,14 +179,17 @@
                             <td>
                                 <a href="03-crm-edit-bid.html">Редактировать</a>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
         </div>
         <!-- // main-wrapper -->
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/model.js"></script>
+        <script src="js/table.view.js"></script>
+        <script src="js/table.controller.js"></script>
+        <!-- <script src="js/form.view.js"></script>
+        <script src="js/form.controller.js"></script> -->
     </body>
 </html>

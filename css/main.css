@@ -758,4 +758,14 @@ body {
   font-weight: 700;
 }
 
+.badge-rejection {
+  color: #fff;
+  background-color: #4d050c;
+}
+
+.badge-arhive {
+  color: #fff;
+  background-color: #5e2bbd;
+}
+
 /*# sourceMappingURL=main.css.map */

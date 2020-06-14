@@ -16,18 +16,19 @@ const controller = (function(applicationCtr, uiCtr){
     // Функция, кот. срабатывает при отправке формы(наж на кнопку или enter)
     function ctrAddItem(e){
         e.preventDefault();
-        console.log("Fired!");
 
         // Вызываем метод возвращения данных из формы
         const input = uiCtr.getInput();
         console.log("ctrAddItem -> input", input)
 
         // Добавляем полученные данные в модель
-        let newCourse = applicationCtr.addCourse(input.name, input.phone, input.email, input.type);
+        newBids = applicationCtr.addBids(input.id, input.name, input.phone, input.email, input.type, input.today, input.status);
         applicationCtr.test();
 
         // Добавляем запись в localStorage
         applicationCtr.addLocalStorage();
+
+        alert('Спасибо за отправку заявки. В ближайшее время мы свяжемся с Вами!')
 
 
     }

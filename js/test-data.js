@@ -32,7 +32,6 @@ function insertUi(){
 
     // Получаем случайный элемент из массива
     const randomItem = testData[random];
-    console.log("inserUi -> randomItem", randomItem)
 
     // Находим поля в разметке для записи этого элемента
     document.querySelector("#input-name").value = randomItem.name;

@@ -33,7 +33,6 @@ const tableController = (function(applicationCtr, uiTableCtr){
         e.preventDefault();
 
         let productValue = e.target.value;
-        console.log('productValue', productValue)
 
         let filterArrData = arrData.filter(function(item) {
 
@@ -91,26 +90,7 @@ const tableController = (function(applicationCtr, uiTableCtr){
         // Выводим обновленный массив
         uiTableCtr.addListItem(filterStatusData);
 
-        // let badge = document.createElement("div");
-        
-        // badge.classList.add('badge');
-
-        // badge.prepend(filterStatusData.length);
-
-        // document.querySelectorAll('.filter-bids').forEach(item => {
-        //     item.append(badge);
-        // })
-
-
-        // console.log('badge', badge)
-
     }
-
-    // function bidsCounter (){
-
-
-
-    // }
 
     // ID заявки при нажатии на "редактировать"
     function linkEditBidId(e) {
@@ -125,9 +105,9 @@ const tableController = (function(applicationCtr, uiTableCtr){
         }
 
     }
-
     
-
+    // Счетчики
+    viewTableController.bidsCounter();
 
     return {
         linkEditBidId: linkEditBidId,

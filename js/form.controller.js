@@ -28,7 +28,10 @@ const controller = (function(applicationCtr, uiCtr){
         // Добавляем запись в localStorage
         applicationCtr.addLocalStorage();
 
-        alert('Спасибо за отправку заявки. В ближайшее время мы свяжемся с Вами!')
+        document.querySelector('.white-plate--open').style.display = 'none';
+        document.querySelector('.white-plate--close').style.display = 'block';
+
+        // alert('Спасибо за отправку заявки. В ближайшее время мы свяжемся с Вами!')
 
 
     }

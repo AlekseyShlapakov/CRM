@@ -3,6 +3,14 @@ const modelController = (function() {
     // Создаем массив со всеми данными нашего приложения
     let arrData = [];
 
+    const products = {
+        html: "Курс по верстке",
+        js: "Курс по JavaScript",
+        vue: "Курс по VUE JS",
+        php: "Курс по PHP",
+        wordpress: "Курс по WordPress"
+    }
+
     // Функция - проверяем есть ли данные в localStorage и,
     // если есть, берем из него
     function setArrData(){
@@ -72,6 +80,9 @@ const modelController = (function() {
         setArrData: setArrData,
         test: function(){
             console.log(arrData);
+        },
+        getProducts: function(){
+            return products;
         }
 
     }

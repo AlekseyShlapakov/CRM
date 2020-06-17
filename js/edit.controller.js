@@ -3,28 +3,27 @@ const editController = (function (applicationCtr, uiViewCtr){
     // Объявляем наши селекторы
     let DOM = uiViewCtr.getDomViewStrings();
 
+    // Достаем массив заявок из localStorage
+    let arrData = applicationCtr.setArrData();
+
+    // Здесь ID заявки при нажатии на "редактировать"
+    let editId = localStorage.getItem('editItemId');
+
+    // Находим индекс заявки в локалсторедже
+    let BidID = arrData.findIndex(item => item.id == editId);
+
+    // Вытаскиваем заявку, обращаясь по индексу
+    let bidChange = arrData[BidID];
+
     // Прослушиваем события по формам
     function eventListeners(){
         document.querySelector(DOM.btnBrimary).addEventListener('click', saveNewBid);
         document.querySelector(DOM.btnDark).addEventListener('click', removeToArhive);
     }
 
-    // Поиск id заявки из локал стореджа
+    // Подставляем значения в форму
     function completeBidForm(){
-        
-        // Достаем массив заявок из localStorage
-        arrData = applicationCtr.setArrData();
 
-        // Здесь ID заявки при нажатии на редактировать
-        let editId = localStorage.getItem('editItemId');
-
-        // Находим индекс заявки в локалсторедже
-        let BidID = arrData.findIndex(item => item.id == editId);
-
-        // Вытаскиваем заявку, обращаясь по индексу
-        let bidChange = arrData[BidID];
-
-        // Подставляем значения в форму
         if( editId == bidChange.id ) {
             document.querySelector(DOM.formID).textContent = `Заявка № ${bidChange.id}`;
             document.querySelector(DOM.formDate).textContent = bidChange.today;
@@ -49,18 +48,6 @@ const editController = (function (applicationCtr, uiViewCtr){
 
         e.preventDefault();
 
-        // Достаем массив заявок из localStorage
-        arrData = applicationCtr.setArrData();
-
-        // Здесь ID заявки при нажатии на редактировать
-        let editId = localStorage.getItem('editItemId');
-
-        // Находим индекс заявки в локалсторедже
-        let BidID = arrData.findIndex(item => item.id == editId);
-
-        // Вытаскиваем заявку, обращаясь по индексу
-        let bidChange = arrData[BidID];
-
         // Присваиваем новые значения, исходя из новых выбранных данных
         bidChange.name = document.querySelector(DOM.formName).value;
         bidChange.email = document.querySelector(DOM.formEmail).value;
@@ -76,26 +63,13 @@ const editController = (function (applicationCtr, uiViewCtr){
         // Обновляем локалсторедж
         applicationCtr.addLocalStorage();
 
-        window.location = "/02-crm-all-bids.html";
+        window.location = "./02-crm-all-bids.html";
 
     }
 
     // Удаление заявки в архив
     function removeToArhive (e) {
         e.preventDefault();
-
-        // Достаем массив заявок из localStorage
-        arrData = applicationCtr.setArrData();
-
-        // Здесь ID заявки при нажатии на редактировать
-        let editId = localStorage.getItem('editItemId');
-
-        // Находим индекс заявки в локалсторедже
-        let BidID = arrData.findIndex(item => item.id == editId);
-
-        // Вытаскиваем заявку, обращаясь по индексу
-        let bidChange = arrData[BidID];
-        console.log('bidChange', bidChange)
 
         // Присваиваем новый статус
         bidChange.status = 'arhive';
@@ -108,7 +82,7 @@ const editController = (function (applicationCtr, uiViewCtr){
         // Обновляем локалсторедж
         applicationCtr.addLocalStorage();
 
-        window.location = "/02-crm-all-bids.html";
+        window.location = "./02-crm-all-bids.html";
 
     }
 
